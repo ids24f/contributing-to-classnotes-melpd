@@ -4,14 +4,55 @@ format: pdf
 jupyter: python3
 ---
 1. Creating a Fork
+
 To create a fork of the classnotes, I went to the GitHub repository for the notes at statds/ids-f24.
 At the top right corner above the Code button, there is the Fork button.
 After pressing on it I created a new fork that connected to my personal GitHub account.
 
 2. Cloning
+
 From my fork in GitHub, I was able to clone the repository from my account to my personal computer.
 I pressed the code button in the repository and copied the https to use to clone.
-I prefer to use Git Bash. I went to Git Bash and used the cd command to get into the appropriate folder I wanted to add the noted to.
-From that folder, I used the command git clone plus the https in order to add the repository to my folder.
-Then I used cd to enter the repository and the command code . to open the files in VS Code.
+I prefer to use Git Bash. I went to Git Bash and used the `cd` command to get into the appropriate folder I wanted to add the notes to.
+From that folder, I used the command `git clone` plus the https in order to add the repository to my folder.
 
+3. Rendering the Class Notes
+
+In order to render the class notes, I used the `cd` command to enter the folder and then used the command `quarto render`.
+The only issue I faced was that it took a while for the notes to fully render.
+
+4. Making a New Branch
+
+I prefer to use the command `code .` in order to open the repository in VS Code.
+Once I have the repository open, I created a new branch using the command `git checkout -b update-wishlist`.
+To make sure you are on the right branch, you can use the commands `git branch` or simply `git status`.
+
+5. Making Changes
+
+Once I had made sure I was working on the correct branch, I added my wishes to the wishlist in the index.qmd file.
+After I had finished adding my changes, I used the command `git add index.qmd` to add my changes.
+I then used the command `git commit -m "added to Melanie's wishlist"` to commit my changes.
+Next I tried to push my commits. This is where I ran into a small issue. When I ran git push, I recieved this error message: 
+
+" fatal: The current branch update-wishlist has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin update-wishlist
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'."
+
+So them I ran the recommended command `git push --set-upstream origin update-wishlist`. This returned the message:
+
+"remote: Permission to statds/ids-f24.git denied to melpd.
+fatal: unable to access 'https://github.com/statds/ids-f24.git/': The requested URL returned error: 403"
+
+I believe the reason for this was that I accidentally clone directly from the statsds instead of cloning from my own fork.
+To check this, I used the command `git remote -v` which showed that it was connected to statsds/ids-f24.
+To fix this, I used the command `git remote set-url origin https://github.com/melpd/ids-f24.git`.
+From that I ran `git push --set-upstream origin update-wishlist` in the terminal to push my changes to my repository.
+
+6. Pull Request
+
+Finally, I went back to my forked GitHub repository and clicked on the banner that said "Compare and pull request".
+From there, I added a message about what changes I made and then submitted it.
