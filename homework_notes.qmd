@@ -1,0 +1,17 @@
+---
+title: "Contributing to the Class Notes"
+format: pdf
+jupyter: python3
+---
+1. Creating a Fork
+To create a fork of the classnotes, I went to the GitHub repository for the notes at statds/ids-f24.
+At the top right corner above the Code button, there is the Fork button.
+After pressing on it I created a new fork that connected to my personal GitHub account.
+
+2. Cloning
+From my fork in GitHub, I was able to clone the repository from my account to my personal computer.
+I pressed the code button in the repository and copied the https to use to clone.
+I prefer to use Git Bash. I went to Git Bash and used the cd command to get into the appropriate folder I wanted to add the noted to.
+From that folder, I used the command git clone plus the https in order to add the repository to my folder.
+Then I used cd to enter the repository and the command code . to open the files in VS Code.
+
